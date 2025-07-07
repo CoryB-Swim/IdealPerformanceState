@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal Performance State - An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2;
+            color: #003B71;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 45vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .pulse {
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 161, 228, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(0, 161, 228, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 161, 228, 0);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-[#003B71]">
+                    <span class="text-[#00A1E4]">IPS</span> TOOLKIT
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#spectrum" class="text-gray-600 hover:text-[#00A1E4]">The Spectrum</a>
+                    <a href="#zone" class="text-gray-600 hover:text-[#00A1E4]">The Zone</a>
+                    <a href="#toolkit" class="text-gray-600 hover:text-[#00A1E4]">The Toolkit</a>
+                    <a href="#focus" class="text-gray-600 hover:text-[#00A1E4]">Mastering Focus</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section class="text-center my-8 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-black text-[#003B71] tracking-tight">Master Your Mind</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">An athlete's guide to understanding and achieving the <span class="font-bold text-[#00A1E4]">Ideal Performance State (IPS)</span>, where physical readiness and mental focus align for peak performance.</p>
+        </section>
+
+        <section id="spectrum" class="my-12 md:my-24 scroll-mt-20">
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#003B71]">The Performance-Readiness Spectrum</h2>
+                <p class="text-center text-gray-600 max-w-4xl mx-auto mb-8">The Inverted-U Hypothesis shows that performance peaks at an optimal level of arousal. Too little (underprepared) or too much (overwhelmed) can hinder your ability. The key is finding your unique sweet spot.</p>
+                <div class="chart-container">
+                    <canvas id="invertedUCurve"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="zone" class="my-12 md:my-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#003B71]">What is "The Zone"? Defining Your IPS</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#0073BC]">Characteristics of Peak Performance</h3>
+                    <p class="text-center text-gray-600 mb-6">Athletes in their Ideal Performance State consistently report a powerful combination of mental and physical attributes. This chart visualizes the key components of being "in the zone."</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="ipsCharacteristicsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#0073BC]">The Four Pillars of Capacity</h3>
+                    <p class="text-center text-gray-600 mb-6">IPS is built on four interconnected capacities. A weakness in one area can impact all others, highlighting the need for a holistic approach to training.</p>
+                    <div class="flex flex-col space-y-4 justify-center h-full">
+                        <div class="bg-[#EBF8FF] border-l-4 border-[#00A1E4] p-4 rounded-r-lg">
+                            <h4 class="font-bold text-lg text-[#0073BC]">Physical Capacity</h4>
+                            <p class="text-gray-700 text-sm">The foundation. Endurance and recovery that fuel mental and emotional resilience.</p>
+                        </div>
+                        <div class="bg-[#EBF8FF] border-l-4 border-[#00A1E4] p-4 rounded-r-lg">
+                            <h4 class="font-bold text-lg text-[#0073BC]">Mental Capacity</h4>
+                            <p class="text-gray-700 text-sm">The ability to sustain task-relevant focus and clear thinking under pressure.</p>
+                        </div>
+                        <div class="bg-[#EBF8FF] border-l-4 border-[#00A1E4] p-4 rounded-r-lg">
+                            <h4 class="font-bold text-lg text-[#0073BC]">Emotional Capacity</h4>
+                            <p class="text-gray-700 text-sm">Managing emotions effectively to channel energy into drive and determination.</p>
+                        </div>
+                        <div class="bg-[#EBF8FF] border-l-4 border-[#00A1E4] p-4 rounded-r-lg">
+                            <h4 class="font-bold text-lg text-[#0073BC]">Spiritual Capacity</h4>
+                            <p class="text-gray-700 text-sm">The ultimate source of motivation, derived from deep values and purpose.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="toolkit" class="my-12 md:my-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#003B71]">The Athlete's Mental Toolkit</h2>
+            <p class="text-center text-gray-600 max-w-4xl mx-auto mb-12">IPS is a controllable state. These evidence-based tools are designed to help you shift your arousal level, whether you need to ramp up your energy or calm your mind.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 border-t-8 border-[#00A1E4]">
+                    <h3 class="text-2xl font-bold text-center text-[#0073BC]">From Underprepared to Ready</h3>
+                    <p class="text-center text-gray-600 mb-6">Use these tools to increase activation, focus, and motivation when you're feeling lethargic or uninspired.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <span class="text-3xl">🎯</span>
+                            <div>
+                                <h4 class="font-bold">Goal Setting</h4>
+                                <p class="text-sm text-gray-600">Focus on controllable process and performance goals to build confidence and direction.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-3xl">🗣️</span>
+                            <div>
+                                <h4 class="font-bold">Arousal-Inducing Self-Talk</h4>
+                                <p class="text-sm text-gray-600">Use motivational phrases like "Keep pushing" or "You've got this" to energize yourself.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                             <span class="text-3xl">🧠</span>
+                            <div>
+                                <h4 class="font-bold">Energizing Imagery</h4>
+                                <p class="text-sm text-gray-600">Visualize powerful, successful performances to prime your mind and body for action.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-3xl">🔄</span>
+                            <div>
+                                <h4 class="font-bold">Activation Routines</h4>
+                                <p class="text-sm text-gray-600">Engage in consistent physical and mental warm-ups to signal readiness to your brain.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 border-t-8 border-[#85CDE6]">
+                    <h3 class="text-2xl font-bold text-center text-[#0073BC]">From Overwhelmed to Composed</h3>
+                    <p class="text-center text-gray-600 mb-6">Use these tools to reduce anxiety, manage overthinking, and restore calm when you feel stressed.</p>
+                     <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <span class="text-3xl">🧘</span>
+                            <div>
+                                <h4 class="font-bold">Breathing Exercises</h4>
+                                <p class="text-sm text-gray-600">Slow, deep breaths (like Box Breathing) calm the nervous system and slow your heart rate.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4">
+                            <span class="text-3xl">💡</span>
+                            <div>
+                                <h4 class="font-bold">Cognitive Restructuring</h4>
+                                <p class="text-sm text-gray-600">Challenge and reframe negative thoughts. Turn "I can't mess up" into "I am prepared for this."</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-3xl">🤫</span>
+                            <div>
+                                <h4 class="font-bold">Calming Self-Talk</h4>
+                                <p class="text-sm text-gray-600">Use instructional cues like "Relax the shoulders" or "Smooth and easy" to regain focus.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-3xl">🏞️</span>
+                            <div>
+                                <h4 class="font-bold">Calming Imagery</h4>
+                                <p class="text-sm text-gray-600">Visualize a peaceful environment or an effortless performance to reduce tension.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-8">
+                 <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 lg:col-span-3">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#0073BC]">Focus on What You Can Control</h3>
+                     <p class="text-center text-gray-600 mb-6">The type of goal you set directly impacts your confidence and anxiety. Process and Performance goals give you direct control, building self-efficacy and reducing pressure compared to outcome-based goals.</p>
+                    <div class="chart-container h-80">
+                        <canvas id="goalTypesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 lg:col-span-2 flex flex-col justify-center items-center">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#0073BC]">Box Breathing Exercise</h3>
+                    <p class="text-center text-gray-600 mb-6">A simple, powerful tool to manage stress in real-time. Follow the guide below.</p>
+                    <div class="w-48 h-48 bg-[#85CDE6] rounded-lg flex items-center justify-center text-center text-white font-bold text-xl p-4 pulse">
+                        <div id="breathing-text">Inhale for 4s</div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="focus" class="my-12 md:my-24 scroll-mt-20">
+             <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#003B71]">Mastering Your Attentional Focus</h2>
+                <p class="text-center text-gray-600 max-w-4xl mx-auto mb-8">Elite performance requires shifting your focus dynamically. Concentration is not about blocking everything out; it's about focusing on the right thing at the right time.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                    
+                    <div class="p-4 rounded-lg bg-gray-50 border-t-4 border-[#00A1E4]">
+                        <h4 class="font-bold text-lg text-center text-[#0073BC]">Broad External</h4>
+                        <p class="text-sm text-center text-gray-600">Used to rapidly assess a situation. (e.g., A quarterback scanning the field).</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-gray-50 border-t-4 border-[#00A1E4]">
+                        <h4 class="font-bold text-lg text-center text-[#0073BC]">Narrow External</h4>
+                        <p class="text-sm text-center text-gray-600">Used to focus on one or two external cues. (e.g., Focusing only on the ball).</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-gray-50 border-t-4 border-[#00A1E4]">
+                        <h4 class="font-bold text-lg text-center text-[#0073BC]">Broad Internal</h4>
+                        <p class="text-sm text-center text-gray-600">Used to analyze a plan or strategy without external input. (e.g., A coach reviewing a game plan).</p>
+                    </div>
+                     <div class="p-4 rounded-lg bg-gray-50 border-t-4 border-[#00A1E4]">
+                        <h4 class="font-bold text-lg text-center text-[#0073BC]">Narrow Internal</h4>
+                        <p class="text-sm text-center text-gray-600">Used to mentally rehearse a skill or control emotions. (e.g., A diver visualizing a dive).</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+        
+    </main>
+    
+    <footer class="bg-[#003B71] text-white mt-16">
+        <div class="container mx-auto p-8 text-center">
+            <p>This interactive tool is based on established principles of sports psychology.</p>
+            <p class="text-sm text-gray-400 mt-2">Use these techniques consistently in training to build robust mental skills for competition.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const wrapLabel = (label, maxLength = 16) => {
+        if (typeof label !== 'string' || label.length <= maxLength) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + ' ' + word).trim().length > maxLength) {
+                lines.push(currentLine.trim());
+                currentLine = word;
+            } else {
+                currentLine = (currentLine + ' ' + word).trim();
+            }
+        });
+        if (currentLine) {
+            lines.push(currentLine.trim());
+        }
+        return lines;
+    };
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+    
+    const commonChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#003B71',
+                    font: {
+                        family: "'Inter', sans-serif"
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                },
+                titleFont: {
+                    family: "'Inter', sans-serif"
+                },
+                bodyFont: {
+                    family: "'Inter', sans-serif"
+                },
+                backgroundColor: '#003B71',
+            }
+        },
+        scales: {
+            y: {
+                ticks: { color: '#0073BC' },
+                grid: { color: 'rgba(0, 115, 188, 0.1)' }
+            },
+            x: {
+                ticks: { color: '#0073BC' },
+                grid: { color: 'rgba(0, 115, 188, 0.1)' }
+            }
+        }
+    };
+
+
+    const ctxInvertedU = document.getElementById('invertedUCurve')?.getContext('2d');
+    if (ctxInvertedU) {
+        new Chart(ctxInvertedU, {
+            type: 'line',
+            data: {
+                labels: ['Low', 'Slightly Low', 'Optimal', 'Slightly High', 'High'],
+                datasets: [{
+                    label: 'Performance Level',
+                    data: [30, 70, 100, 75, 40],
+                    borderColor: '#00A1E4',
+                    backgroundColor: 'rgba(0, 161, 228, 0.2)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#00A1E4'
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                 scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        max: 110,
+                        ticks: {
+                            callback: function(value) {
+                                if (value === 100) return 'Peak';
+                                if (value === 0) return 'Low';
+                                return null;
+                            },
+                            color: '#0073BC'
+                        },
+                        grid: { color: 'rgba(0, 115, 188, 0.1)' }
+                    },
+                    x: { 
+                        title: { display: true, text: 'Arousal / Readiness Level', color: '#003B71' },
+                        ticks: { color: '#0073BC' },
+                        grid: { color: 'rgba(0, 115, 188, 0.1)' }
+                    }
+                }
+            }
+        });
+    }
+
+
+    const ctxIpsCharacteristics = document.getElementById('ipsCharacteristicsChart')?.getContext('2d');
+    if (ctxIpsCharacteristics) {
+        new Chart(ctxIpsCharacteristics, {
+            type: 'radar',
+            data: {
+                labels: ['Mentally Focused', 'Self-Confident', 'Physically Relaxed', 'Energized', 'In Control', 'Enjoying the Battle'],
+                datasets: [{
+                    label: 'Ideal Performance State',
+                    data: [95, 90, 85, 90, 88, 92],
+                    borderColor: '#0073BC',
+                    backgroundColor: 'rgba(0, 115, 188, 0.2)',
+                    pointBackgroundColor: '#0073BC'
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 115, 188, 0.2)' },
+                        grid: { color: 'rgba(0, 115, 188, 0.2)' },
+                        pointLabels: {
+                            font: { size: 12, family: "'Inter', sans-serif" },
+                            color: '#003B71'
+                        },
+                        ticks: {
+                            color: 'white',
+                            backdropColor: 'rgba(0, 59, 113, 0.8)',
+                            stepSize: 25
+                        },
+                        min: 0,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+
+    const ctxGoalTypes = document.getElementById('goalTypesChart')?.getContext('2d');
+    if (ctxGoalTypes) {
+        const rawLabels = ['Process Goals (e.g., technique)', 'Performance Goals (e.g., personal best)', 'Outcome Goals (e.g., winning)'];
+        new Chart(ctxGoalTypes, {
+            type: 'bar',
+            data: {
+                labels: rawLabels.map(l => wrapLabel(l, 25)),
+                datasets: [{
+                    label: "Athlete's Level of Control",
+                    data: [95, 75, 25],
+                    backgroundColor: ['#00A1E4', '#85CDE6', '#CCCCCC'],
+                    borderColor: '#003B71',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: 'Level of Control (%)', color: '#003B71' },
+                        ticks: { color: '#0073BC' },
+                        grid: { color: 'rgba(0, 115, 188, 0.1)' }
+                    },
+                    y: {
+                        ticks: { color: '#0073BC' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    const breathingText = document.getElementById('breathing-text');
+    if(breathingText) {
+        const phases = ['Inhale for 4s', 'Hold for 4s', 'Exhale for 4s', 'Hold for 4s'];
+        let currentPhase = 0;
+        setInterval(() => {
+            currentPhase = (currentPhase + 1) % phases.length;
+            breathingText.textContent = phases[currentPhase];
+        }, 4000);
+    }
+});
+</script>
+
+</body>
+</html>
